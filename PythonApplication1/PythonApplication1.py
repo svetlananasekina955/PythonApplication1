@@ -1,5 +1,5 @@
 def read_phonebook(filename="phonebook.txt"):
-    """Читает телефонный справочник из файла."""
+    """Р§РёС‚Р°РµС‚ С‚РµР»РµС„РѕРЅРЅС‹Р№ СЃРїСЂР°РІРѕС‡РЅРёРє РёР· С„Р°Р№Р»Р°."""
     with open(filename, "a+"):
         pass
 
@@ -14,7 +14,7 @@ def read_phonebook(filename="phonebook.txt"):
 
 
 def write_phonebook(phonebook, filename="phonebook.txt"):
-    """Записывает телефонный справочник в файл."""
+    """Р—Р°РїРёСЃС‹РІР°РµС‚ СЌР»РµРєС‚СЂРѕРЅРЅС‹Р№ СЃРїСЂР°РІРѕС‡РЅРёРє РІ С„Р°Р№Р»"""
     with open(filename, "w") as file:
         for surname, (name, phone) in phonebook.items():
             file.write(f"{surname};{name};{phone}\n")
@@ -48,31 +48,31 @@ def find_entry(surname):
 
 def main():
     while True:
-        choice = input("Выберите действие (add/update/delete/find/quit): ").lower()
+        choice = input("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ (add/update/delete/find/quit): ").lower()
         if choice == "quit":
             break
         elif choice == "add":
-            surname = input("Введите фамилию: ")
-            name = input("Введите имя: ")
-            phone = input("Введите номер телефона: ")
+            surname = input("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ")
+            name = input("Р’РІРµРґРёС‚Рµ РёРјСЏ: ")
+            phone = input("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: ")
             add_entry(surname, name, phone)
         elif choice == "update":
-            surname = input("Введите фамилию: ")
-            name = input("Введите новое имя (оставьте пустым, чтобы не менять): ")
-            phone = input("Введите новый номер телефона (оставьте пустым, чтобы не менять): ")
+            surname = input("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ")
+            name = input("Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РёРјСЏ (РѕСЃС‚Р°РІСЊС‚Рµ РїСѓСЃС‚С‹Рј, С‡С‚РѕР±С‹ РЅРµ РјРµРЅСЏС‚СЊ): ")
+            phone = input("Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅРІ(РѕСЃС‚Р°РІСЊС‚Рµ РїСѓСЃС‚С‹СЊ, С‡С‚РѕР±С‹ РЅРµ РјРµРЅСЏС‚СЊ): ")
             update_entry(surname, name, phone)
         elif choice == "delete":
-            surname = input("Введите фамилию для удаления: ")
+            surname = input("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ")
             delete_entry(surname)
         elif choice == "find":
-            surname = input("Введите фамилию для поиска: ")
+            surname = input("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РґР»СЏ РїРѕРёСЃРєР°: ")
             entry = find_entry(surname)
             if entry:
-                print(f"Имя: {entry[0]}, Номер телефона: {entry[1]}")
+                print(f"РРјСЏ: {entry[0]}, РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: {entry[1]}")
             else:
-                print("Запись не найдена.")
+                print("Р—Р°РїРёСЃСЊ РЅРµ РЅР°Р№РґРµРЅР°.")
         else:
-            print("Неизвестное действие.")
+            print("РќРµРёР·РІРµСЃС‚РЅРѕРµ РґРµР№СЃС‚РІРёРµ.")
 
 
 if __name__ == "__main__":
